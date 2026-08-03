@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BrightSnow"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".EditUserActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/motorsyncperf" />
+
+    <TextView
+        android:id="@+id/txtBienvenido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/basic_sans_serif_7"
+        android:textAlignment="center"
+        android:textColor="@color/CarbonBlack"
+        android:textStyle="italic"
+        android:textSize="30sp"
+        android:text="@string/editar" />
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/plain_text_login"
+        android:drawableStart="@drawable/mail"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/correo"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/CarbonBlack" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/plain_text_login"
+        android:drawableStart="@drawable/password"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/contrasenia"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColorHint="@color/CarbonBlack" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_login"
+        android:text="@string/cambios"
+        android:textStyle="bold"
+        android:textColor="@color/BrightSnow" />
+</LinearLayout>

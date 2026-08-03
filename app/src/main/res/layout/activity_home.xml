@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BrightSnow"
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
+
+
+    <LinearLayout
+        android:id="@+id/Encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/back_encabezado"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logosolo" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/plain_text_login"
+            android:drawableStart="@drawable/buscar"
+            android:ems="10"
+            android:hint="@string/buscar"
+            android:inputType="text"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:textColorHint="@color/CarbonBlack" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Categorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/back_categoria"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <ImageView
+            android:id="@+id/imgF1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/f1" />
+
+        <ImageView
+            android:id="@+id/imgMoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/motogp" />
+
+        <ImageView
+            android:id="@+id/imgIndy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/indycar" />
+
+        <ImageView
+            android:id="@+id/imgSbk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/superbike" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Directo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/back_directo"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <LinearLayout
+            android:id="@+id/TextoDirecto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_categoria"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtDirecto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/envivo"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/vivo"
+                android:textAlignment="textStart"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/DirectoF1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_f1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtF1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/f1peque2"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/formula1"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraMiami"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/eeuupeque"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/miami"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtEntrenamiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/entrenamiento"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtClasificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/clasificacion"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCarrera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/carrera"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/DirectoMotogp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/back_f1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMotoGP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/motogppeque2"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/motogp"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraSpain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/spainpeque"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/granpremio"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtEntrenamientoGP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/entrenamiento2"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtClasificacionGP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/clasificacion2"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraGP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/carrera2"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Proximo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/back_directo"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <LinearLayout
+            android:id="@+id/TextoProximo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_categoria"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtProximo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/bandera"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/proximas"
+                android:textAlignment="textStart"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ProximaF1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_f1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtF12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/f1peque2"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/formula1"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraCanada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/canadapeque"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/canada"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtInicia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/inicia"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ProximaMotogp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_f1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMotoGP2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/motogppeque2"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/motogp"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraFrancia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/franciapeque"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/francia"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtInicia2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/inicia2"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ProximaIndycar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/back_f1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtIndycar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/indycarpeque2"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/indycar"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraUsa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/eeuupeque"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/sonsio"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtInicia3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/inicia3"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ProximaSuperbike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/back_f1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtSuperbike"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/superbikepeque2"
+                android:drawablePadding="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:text="@string/superbike"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtCarreraHungria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/hungriapeque"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/hungria"
+                android:textAlignment="textStart"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtInicia4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:paddingStart="28dp"
+                android:paddingEnd="0dp"
+                android:text="@string/inicia4"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_pie"
+        android:layout_marginTop="20dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_menu"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:drawableStart="@drawable/casa32"
+            android:text="Home"
+            android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_menu"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/bandera32"
+            android:text="Cate"
+            android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFavorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_menu"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/favorito32"
+            android:text="Fav"
+            android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNotificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_menu"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/campana32"
+            android:text="Noti"
+            android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAjuste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_menu"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:drawableStart="@drawable/ajustes"
+            android:text="Ajus"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>
