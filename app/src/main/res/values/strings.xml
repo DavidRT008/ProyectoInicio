@@ -48,4 +48,5 @@
     <string name="usuarios">Usuarios Registrados</string>
     <string name="editar">Editar Usuario</string>
     <string name="cambios">Guardar cambios</string>
+    <string name="usuario_id_correo">%1$d. %2$s</string>
 </resources>

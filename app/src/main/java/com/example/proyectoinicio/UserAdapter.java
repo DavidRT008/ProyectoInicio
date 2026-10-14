@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +38,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         User usuario = listaUsuarios.get(position);
 
-        holder.txtCorreo.setText(usuario.getMail());
+        holder.txtCorreo.setText(context.getString(
+                R.string.usuario_id_correo,
+                usuario.getId(),
+                usuario.getMail()));
         holder.txtPassword.setText(usuario.getPassword());
 
         //Eliminar
@@ -48,12 +52,22 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                     .setMessage("¿Desea eliminar este usuario?")
                     .setPositiveButton("Sí", (dialog, which) -> {
 
-                        int pos = holder.getAdapterPosition();
+                        int pos = holder.getBindingAdapterPosition();
 
                         if (pos != RecyclerView.NO_POSITION) {
-                            listaUsuarios.remove(pos);
-                            notifyItemRemoved(pos);
-                            notifyItemRangeChanged(pos, listaUsuarios.size());
+                            User usuarioEliminar = listaUsuarios.get(pos);
+                            DBMotor dbmotor = new DBMotor(context);
+                            boolean eliminado = dbmotor.eliminarUsuario(usuarioEliminar.getId());
+                            dbmotor.close();
+
+                            if (eliminado) {
+                                listaUsuarios.remove(pos);
+                                notifyItemRemoved(pos);
+                            } else {
+                                Toast.makeText(context,
+                                        "No se pudo eliminar el usuario",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                     })
@@ -64,10 +78,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         //Editar
         holder.btnEditar.setOnClickListener(v -> {
 
-            int pos = holder.getAdapterPosition();
+            int pos = holder.getBindingAdapterPosition();
             if (pos != RecyclerView.NO_POSITION) {
+                User usuarioEditar = listaUsuarios.get(pos);
                 Intent intent = new Intent(context, EditUserActivity.class);
-                intent.putExtra("posicion", pos);
+                intent.putExtra(EditUserActivity.EXTRA_USUARIO_ID, usuarioEditar.getId());
                 context.startActivity(intent);
             }
         });

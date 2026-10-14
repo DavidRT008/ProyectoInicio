@@ -19,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button register;
     EditText mail;
     EditText password;
+    DBMotor dbmotor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         register = findViewById(R.id.btnSesion);
         mail = findViewById(R.id.editCorreo);
         password = findViewById(R.id.editContraseña);
+        dbmotor = new DBMotor(this);
 
         google.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,11 +79,14 @@ public class RegisterActivity extends AppCompatActivity {
 
                 User user = new User(correo, contraseña);
 
-                Data.Users.add(user);
+                if (!dbmotor.insertarUsuario(user)) {
+                    mail.setError("El correo ya está registrado");
+                    return;
+                }
 
                 Toast.makeText(
                         RegisterActivity.this,
-                        "Usuarios registrados: " + Data.Users.size(),
+                        "Usuarios registrados: " + dbmotor.contarUsuarios(),
                         Toast.LENGTH_SHORT
                 ).show();
 
@@ -89,5 +94,11 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(third);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbmotor.close();
+        super.onDestroy();
     }
 }

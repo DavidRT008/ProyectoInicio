@@ -10,6 +10,7 @@ public class UserActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private UserAdapter adapter;
+    private DBMotor dbmotor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class UserActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerUsuarios);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dbmotor = new DBMotor(this);
         adapter = new UserAdapter(this, Data.Users);
         recyclerView.setAdapter(adapter);
     }
@@ -26,8 +28,18 @@ public class UserActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (adapter != null) {
-            adapter.notifyDataSetChanged();
-        }
+        cargarUsuarios();
+    }
+
+    private void cargarUsuarios() {
+        Data.Users.clear();
+        Data.Users.addAll(dbmotor.obtenerUsuarios());
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbmotor.close();
+        super.onDestroy();
     }
 }

@@ -9,10 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditUserActivity extends AppCompatActivity {
 
+    public static final String EXTRA_USUARIO_ID = "usuario_id";
+
     EditText editCorreo, editPassword;
     Button btnGuardar;
 
-    int posicion;
+    DBMotor dbmotor;
+    User usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +25,20 @@ public class EditUserActivity extends AppCompatActivity {
         editCorreo = findViewById(R.id.editCorreo);
         editPassword = findViewById(R.id.editPassword);
         btnGuardar = findViewById(R.id.btnGuardar);
+        dbmotor = new DBMotor(this);
 
-        posicion = getIntent().getIntExtra("posicion", -1);
+        long usuarioId = getIntent().getLongExtra(EXTRA_USUARIO_ID, -1);
+        usuario = dbmotor.obtenerUsuario(usuarioId);
 
-        if (posicion != -1) {
-
-            User usuario = Data.Users.get(posicion);
-
+        if (usuario != null) {
             editCorreo.setText(usuario.getMail());
             editPassword.setText(usuario.getPassword());
-
+        } else {
+            Toast.makeText(this,
+                    "No se encontró el usuario",
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return;
         }
 
         btnGuardar.setOnClickListener(v -> {
@@ -48,19 +55,28 @@ public class EditUserActivity extends AppCompatActivity {
                 return;
             }
 
-            User usuario = Data.Users.get(posicion);
-
             usuario.setMail(correo);
             usuario.setPassword(password);
 
-            Toast.makeText(this,
-                    "Usuario actualizado",
-                    Toast.LENGTH_SHORT).show();
-
-            finish();
+            if (dbmotor.actualizarUsuario(usuario)) {
+                Toast.makeText(this,
+                        "Usuario actualizado",
+                        Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this,
+                        "No se pudo actualizar. Verifique el correo",
+                        Toast.LENGTH_SHORT).show();
+            }
 
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbmotor.close();
+        super.onDestroy();
     }
 
 }
